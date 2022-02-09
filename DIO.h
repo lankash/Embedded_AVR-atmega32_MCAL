@@ -24,7 +24,7 @@ void DIO_set_pin_dir (unsigned char port, unsigned char pin, unsigned char direc
     Function name         :  DIO_set_port_dir
     Function Returns      :  void
     Function Arguments    :  unsigned char port, unsigned char direction
-    Function Description  :  Set the port direction 'I/P' or 'O/P'.
+    Function Description  :  Set the port direction 'I/P'(@0) or 'O/P'(@1).
 */
 void DIO_set_port_dir (unsigned char port, unsigned char direction);
 
