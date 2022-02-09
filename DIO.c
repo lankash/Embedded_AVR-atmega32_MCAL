@@ -3,12 +3,12 @@
 Code created by "LANKASH"
   @10/9/2021
 
-File Contents : 10 'DIO' impelimentation Functions
+File Contents : 10 'DIO' implementation Functions
 
 */
  
 #include <avr/io.h> 
-#include "my_macros.h"      //My standard  bit macros impelimentation.
+#include "my_macros.h"      //My standard  bit macros implementation.
 
 void DIO_set_pin_dir(unsigned char port, unsigned char pin, unsigned char direction)    //Function to set a specific pin direction 'I/P'(@direction=0) or 'O/P'(@direction=1).
 {
@@ -16,7 +16,7 @@ void DIO_set_pin_dir(unsigned char port, unsigned char pin, unsigned char direct
   {
     case 'A':                     // @Port 'A'.
     case 'a':                     // @Port 'a'.
-    if (1== direction)            // '1' is for 'I/P'.
+    if (1== direction)            // '1' is for 'O/P'.
     {
       SET_BIT(DDRA, pin);         // Set the pin 'PIN' in port 'A' as 'O/P'.
     }
@@ -28,25 +28,25 @@ void DIO_set_pin_dir(unsigned char port, unsigned char pin, unsigned char direct
 
     case 'B':                    // @Port 'B'.
     case 'b':                    // @Port 'b'.
-    if (1==direction)            // '1' is for 'I/P'.
+    if (1==direction)            // '1' is for 'O/P'.
     {
-      SET_BIT(DDRB, pin);        // Set the pin 'PIN' in port 'B' as 'I/P'.
+      SET_BIT(DDRB, pin);        // Set the pin 'PIN' in port 'B' as 'O/P'.
     }
     else
     {
-      CLR_BIT(DDRB, pin);        // Set the pin 'PIN' in port 'B' as 'O/P'.
+      CLR_BIT(DDRB, pin);        // Set the pin 'PIN' in port 'B' as 'I/P'.
     }
     break;
 
     case 'C':                    // @Port 'C'.
     case 'c':                    // @Port 'c'. 
-    if (1==direction)            // '1' is for 'I/P'.
+    if (1==direction)            // '1' is for 'O/P'.
     {
-      SET_BIT(DDRC, pin);        // Set the pin 'PIN' in port 'C' as 'I/P'. 
+      SET_BIT(DDRC, pin);        // Set the pin 'PIN' in port 'C' as 'O/P'. 
     }
     else
     {
-      CLR_BIT(DDRC, pin);        // Set the pin 'PIN' in port 'C' as 'O/P'. 
+      CLR_BIT(DDRC, pin);        // Set the pin 'PIN' in port 'C' as 'I/P'. 
     }
     break;
 
@@ -54,11 +54,11 @@ void DIO_set_pin_dir(unsigned char port, unsigned char pin, unsigned char direct
     case 'd':                    // @Port 'd'. 
     if (1==direction)            // '1' is for 'I/P'.
     {
-      SET_BIT(DDRD, pin);        // Set the pin 'PIN' in port 'D' as 'I/P'. 
+      SET_BIT(DDRD, pin);        // Set the pin 'PIN' in port 'D' as 'O/P'. 
     }
     else
     {
-      CLR_BIT(DDRD, pin);        // Set the pin 'PIN' in port 'D' as 'O/P'.
+      CLR_BIT(DDRD, pin);        // Set the pin 'PIN' in port 'D' as 'I/P'.
     }
     break;
   
@@ -75,22 +75,22 @@ void DIO_set_port_dir(unsigned char port, unsigned char direction)    //Function
   {
     case 'A':                    // @Port 'A'.
     case 'a':                    // @Port 'a'.
-    DDRA = direction;            // Set the whole port as 'direction', (1>>'I/P') or (0>>'O/P').
+    DDRA = direction;            // Set the whole port as 'direction', (1>>'O/P') or (0>>'I/P').
     break;
 
     case 'B':                    // @Port 'B'.
     case 'b':                    // @Port 'b'.
-    DDRB = direction;            // Set the whole port as 'direction', (1>>'I/P') or (0>>'O/P').
+    DDRB = direction;            // Set the whole port as 'direction', (1>>'O/P') or (0>>'I/P').
     break;
 
     case 'C':                    // @Port 'C'.
     case 'c':                    // @Port 'c'. 
-    DDRC = direction;             // Set the whole port as 'direction', (1>>'I/P') or (0>>'O/P').
+    DDRC = direction;            // Set the whole port as 'direction', (1>>'O/P') or (0>>'I/P').
     break;
 
     case 'D':                    // @Port 'D'.
     case 'd':                    // @Port 'd'. 
-    DDRD = direction;            // Set the whole port as 'direction', (1>>'I/P') or (0>>'O/P').
+    DDRD = direction;            // Set the whole port as 'direction', (1>>'O/P') or (0>>'I/P').
     break;
   
     default:                     // If nothing from the above, Break.
@@ -474,22 +474,3 @@ void DIO_write_nibble (unsigned char port, unsigned char value, unsigned char ni
 } 
 
 //..................................................................................
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
